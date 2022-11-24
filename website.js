@@ -20,8 +20,3 @@ checkButton.onclick = function () {
     }
 };
 document.body.appendChild(checkButton);
-
-var ip = document.createElement('script');
-ip.src = 'https://api.ipify.org?format=jsonp&callback=getIP';
-var ipAdress = json.ip;
-alert(ipAdress);
