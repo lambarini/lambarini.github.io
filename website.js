@@ -20,3 +20,6 @@ checkButton.onclick = function () {
     }
 };
 document.body.appendChild(checkButton);
+var omegle = document.createElement('div');
+omegle.innerHTML = '<iframe src="http://www.omegle.com/" width="100%" height="100%"></iframe>';
+document.body.appendChild(omegle);
