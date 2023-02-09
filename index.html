@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<title>Random num</title>
+<title>test</title>
 <html>
     <html lang="en">
 <head>
@@ -10,22 +10,93 @@
       padding: 0;
     }
     body {
-      background: linear-gradient(to bottom, #000000, #333333);
+      background: linear-gradient(to bottom, #222222, #646464);
       background-repeat: no-repeat;
       background-attachment: fixed;
+    }
+    span {
+      background-color: transparent;
+      border: none;
+      color: white;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
     }
     button {
       background-color: transparent;
       border: none;
       color: white;
       text-decoration: none;
+      position: relative;
+      overflow: hidden;
     }
-    button:hover {
-      border-bottom: 2px solid white;
+    button::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 2px;
+      background-color: white;
+      transition: width 0.3s ease-in-out;
+      transform: translateX(-50%);
+    }
+    button:hover::after {
+      width: 100%;
     }
   </style>
 </head>
 <body>
-    <script type="text/javascript" src="website.js"></script>
+  <div>
+    <ul style="list-style-type: none;">
+      <li style="display: flex; align-items: center; margin-bottom: 10px;">
+        <button style="font-size: 20px; padding: 10px 20px;">მათემატიკა</button>
+        <span style="margin-left: 20px; font-size: 20px;">ნომერი 207-220 გეომეტრიაში</span>
+      </li>
+      <li style="display: flex; align-items: center; margin-bottom: 10px;">
+        <button style="font-size: 20px; padding: 10px 20px;">ისტორია</button>
+        <span style="margin-left: 20px; font-size: 20px;">პარაგრაფი 35 გვ 109</span>
+      </li>
+      <li style="display: flex; align-items: center; margin-bottom: 10px;">
+        <button style="font-size: 20px; padding: 10px 20px;">გეოგრაფია</button>
+        <span style="margin-left: 20px; font-size: 20px;">არც მე არ ვიცი</span>
+      </li>
+      <li style="display: flex; align-items: center; margin-bottom: 10px;">
+        <button style="font-size: 20px; padding: 10px 20px;">ბიოლოგია</button>
+        <span style="margin-left: 20px; font-size: 20px;">არაფერი</span>
+      </li>
+      <li style="display: flex; align-items: center; margin-bottom: 10px;">
+        <button style="font-size: 20px; padding: 10px 20px;">გერმანული</button>
+        <span style="margin-left: 20px; font-size: 20px;">ჩააგდეთ!!</span>
+      </li>
+      <li style="display: flex; align-items: center; margin-bottom: 10px;">
+        <button style="font-size: 20px; padding: 10px 20px;">რუსული</button>
+        <span style="margin-left: 20px; font-size: 20px;"> წიგნის რვეულში გაკ. 2.7 და 2.8 დასაწერი დანარჩენი მოსაძებნია</span>
+      </li>
+      <li style="display: flex; align-items: center; margin-bottom: 10px;">
+        <button style="font-size: 20px; padding: 10px 20px;">ფიზიკა</button>
+        <span style="margin-left: 20px; font-size: 20px;">პარაგრაფი 5.3</span>
+      </li>
+      <li style="display: flex; align-items: center; margin-bottom: 10px;">
+        <button style="font-size: 20px; padding: 10px 20px;">სამოქალაქო</button>
+        <span style="margin-left: 20px; font-size: 20px;">არ ვიცი</span>
+      </li>
+      <li style="display: flex; align-items: center; margin-bottom: 10px;">
+        <button style="font-size: 20px; padding: 10px 20px;">მუსიკა</button>
+        <span style="margin-left: 20px; font-size: 20px;">ეგეც არა</span>
+      </li>
+      <li style="display: flex; align-items: center; margin-bottom: 10px;">
+        <button style="font-size: 20px; padding: 10px 20px;">ხელოვნება</button>
+        <span style="margin-left: 20px; font-size: 20px;">არაფერი</span>
+      </li>
+      <li style="display: flex; align-items: center; margin-bottom: 10px;">
+        <button style="font-size: 20px; padding: 10px 20px;">ქართული</button>
+        <span style="margin-left: 20px; font-size: 20px;">5 სიტყვა როგორც გრამატიკაში ვარჩევდით</span>
+      </li>
+      <li style="display: flex; align-items: center; margin-bottom: 10px;">
+        <button style="font-size: 20px; padding: 10px 20px;">ინგლისური</button>
+        <span style="margin-left: 20px; font-size: 20px;">არ ვიცი არც ეს მიშველეთ</span>
+      </li>
+  </div>
 </body>
 </html>
