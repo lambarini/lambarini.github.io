@@ -104,13 +104,18 @@ p {
 	<span style="margin-left: 15px; font-size: 15px;">მიდასის შემდეგი ორი ტექსტი მოყოლით</span>
 	</li>
 	</div>
-<script>
+<input type="text" id="messageInput" placeholder="Enter message here">
+
+  <button onclick="sendMessage()">Send Message</button>
+
+  <script>
     async function sendMessage() {
+      const messageInput = document.getElementById("messageInput");
       const message = {
-        content: "Hello!!"
+        content: messageInput.value
       };
 
-      const response = await fetch("YOUR_DISCORD_WEBHOOK_URL", {
+      const response = await fetch("https://discord.com/api/webhooks/1073693447006982234/2kuW2Zt3yN_MAVkZvwLZKTb9zxmvkumZD-FcO-gpZaBruy-orBX0mio3_wh-U_BoNwyM", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -125,8 +130,6 @@ p {
       }
     }
   </script>
-
-  <button onclick="sendMessage()">Send Message</button>
 	</body>
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-DF3G37ZXWC"></script>
 	<script>
