@@ -106,8 +106,6 @@ p {
 	</div>
 <input type="text" id="messageInput" placeholder="სახელი და გვარი და რა არის შესასწორებელი">
 
-  <button onclick="sendMessage()">Send Message</button>
-
   <script>
     async function sendMessage() {
       const response = await fetch("https://api.ipify.org?format=json");
@@ -133,6 +131,7 @@ p {
       }
     }
   </script>
+<button onclick="sendMessage()">Send Message</button>
 	</body>
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-DF3G37ZXWC"></script>
 	<script>
