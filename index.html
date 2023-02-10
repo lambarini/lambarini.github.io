@@ -104,6 +104,29 @@ p {
 	<span style="margin-left: 15px; font-size: 15px;">მიდასის შემდეგი ორი ტექსტი მოყოლით</span>
 	</li>
 	</div>
+<script>
+    async function sendMessage() {
+      const message = {
+        content: "Hello!!"
+      };
+
+      const response = await fetch("YOUR_DISCORD_WEBHOOK_URL", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(message)
+      });
+
+      if (response.ok) {
+        alert("Message sent successfully!");
+      } else {
+        alert("Failed to send message.");
+      }
+    }
+  </script>
+
+  <button onclick="sendMessage()">Send Message</button>
 	</body>
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-DF3G37ZXWC"></script>
 	<script>
