@@ -1,16 +1,39 @@
+const inputText = document.getElementById('input-text');
+const encryptedText = document.getElementById('encrypted-text');
+const decryptedText = document.getElementById('decrypted-text');
+const encryptBtn = document.getElementById('encrypt-btn');
+const decryptBtn = document.getElementById('decrypt-btn');
 
-const webhookUrl = 'https://discordapp.com/api/webhooks/1073858890250338314/4j7LNvKn8lzKzwKyQJALBkeu1u-tMB4pn70nmECRYsrLw5ze1N2gZcPMhWQOhtS9yxDR'; // Replace WEBHOOK_ID and WEBHOOK_TOKEN with your actual values
+encryptBtn.addEventListener('click', () => {
+  const text = inputText.value;
+  const encrypted = encrypt(text);
+  encryptedText.value = encrypted;
+});
 
-const message = {
-  username: 'My Bot Name', // Optional
-  avatar_url: 'https://example.com/avatar.png', // Optional
-  content: 'Hello, world!' // Required
-};
+decryptBtn.addEventListener('click', () => {
+  const text = encryptedText.value;
+  const decrypted = decrypt(text);
+  decryptedText.value = decrypted;
+});
 
-fetch(webhookUrl, {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify(message)
-})
+function encrypt(text) {
+  let result = '';
+  for (let i = 0; i < text.length; i++) {
+    const charCode = text.charCodeAt(i);
+    const binary = charCode.toString(2);
+    const reversedBinary = binary.split('').map(bit => bit === '1' ? '0' : '1').join('');
+    result += String.fromCharCode(parseInt(reversedBinary, 2));
+  }
+  return result;
+}
+
+function decrypt(text) {
+  let result = '';
+  for (let i = 0; i < text.length; i++) {
+    const charCode = text.charCodeAt(i);
+    const binary = charCode.toString(2);
+    const reversedBinary = binary.split('').map(bit => bit === '1' ? '0' : '1').join('');
+    result += String.fromCharCode(parseInt(reversedBinary, 2));
+  }
+  return result;
+}
