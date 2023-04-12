@@ -1,22 +1,146 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="ASCII">
-    <style src="style.css"></style>
-    <title>Text Encryption</title>
-  </head>
-  <body>
-    <h2>Text Encryption</h2>
-    <div class="container center">
-      <label for="input-text">Enter Text:</label>
-      <input type="text" id="input-text">
-      <input type="button" value="Encrypt" id="encrypt-btn">
-      <label for="encrypted-text">Encrypted Text:</label>
-      <input type="text" id="encrypted-text" readonly>
-      <input type="button" value="Decrypt" id="decrypt-btn">
-      <label for="decrypted-text">Decrypted Text:</label>
-      <input type="text" id="decrypted-text" readonly>
-    </div>
-    <script src="script.js"></script>
-  </body>
-</html>
+	<title>Homework</title>
+	<html>
+	<html lang="en">
+	<head>
+	<style>
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+body {
+	background: linear-gradient(to bottom, #222222, #646464);
+	background-repeat: no-repeat;
+			background-attachment: fixed;
+}
+span {
+	background-color: transparent;
+	border: none;
+	color: white;
+	text-decoration: none;
+	position: relative;
+	overflow: hidden;
+}
+button {
+	background-color: transparent;
+	border: none;
+	color: white;
+	text-decoration: none;
+	position: relative;
+	overflow: hidden;
+}
+button::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 2px;
+	background-color: white;
+	transition: width 0.3s ease-in-out;
+	transform: translateX(-50%);
+}
+button:hover::after {
+	width: 100%;
+}
+p {
+	font-size: 15px;
+	background-color: transparent;
+	color: white;
+}
+	</style>
+	</head>
+	<body>
+	<p>ბოლო განახლება : 15/02/2023 17:53 </p>
+	<div>
+	<ul style="list-style-type: none;">
+	<li style="display: flex; align-items: center; margin-bottom: 10px;">
+	<button style="font-size: 15px; padding: 10px 15px;">მათემატიკა</button>
+	<span style="margin-left: 15px; font-size: 15px;">არაფერი</span>
+	</li>
+	<li style="display: flex; align-items: center; margin-bottom: 10px;">
+	<button style="font-size: 15px; padding: 10px 15px;">ისტორია</button>
+	<span style="margin-left: 15px; font-size: 15px;">პარაგრაფი 38</span>
+	</li>
+	<li style="display: flex; align-items: center; margin-bottom: 10px;">
+	<button style="font-size: 15px; padding: 10px 15px;">გეოგრაფია</button>
+	<span style="margin-left: 15px; font-size: 15px;">გეოგრაფიაში 31 credits : i forgot</span>
+	</li>
+	<li style="display: flex; align-items: center; margin-bottom: 10px;">
+	<button style="font-size: 15px; padding: 10px 15px;">ბიოლოგია</button>
+	<span style="margin-left: 15px; font-size: 15px;">არ ვიცი</span>
+	</li>
+	<li style="display: flex; align-items: center; margin-bottom: 10px;">
+	<button style="font-size: 15px; padding: 10px 15px;">გერმანული</button>
+	<span style="margin-left: 15px; font-size: 15px;">რვეული არ მაქ</span>
+	</li>
+	<li style="display: flex; align-items: center; margin-bottom: 10px;">
+	<button style="font-size: 15px; padding: 10px 15px;">რუსული</button>
+	<span style="margin-left: 15px; font-size: 15px;">ეს ღმერთმა იცის</span>
+	</li>
+	<li style="display: flex; align-items: center; margin-bottom: 10px;">
+	<button style="font-size: 15px; padding: 10px 15px;">ფიზიკა</button>
+	<span style="margin-left: 15px; font-size: 15px;">არაფერი</span>
+	</li>
+	<li style="display: flex; align-items: center; margin-bottom: 10px;">
+	<button style="font-size: 15px; padding: 10px 15px;">სამოქალაქო</button>
+	<span style="margin-left: 15px; font-size: 15px;">19-20 პარაგრაფი და პროექტი გავაკეთოთ</span>
+	</li>
+	<li style="display: flex; align-items: center; margin-bottom: 10px;">
+	<button style="font-size: 15px; padding: 10px 15px;">მუსიკა</button>
+	<span style="margin-left: 15px; font-size: 15px;">ჩააგდეთ</span>
+	</li>
+	<li style="display: flex; align-items: center; margin-bottom: 10px;">
+	<button style="font-size: 15px; padding: 10px 15px;">ხელოვნება</button>
+	<span style="margin-left: 15px; font-size: 15px;">არაფერი</span>
+	</li>
+	<li style="display: flex; align-items: center; margin-bottom: 10px;">
+	<button style="font-size: 15px; padding: 10px 15px;">ქართული</button>
+	<span style="margin-left: 15px; font-size: 15px;">არაფერი</span>
+	</li>
+	<li style="display: flex; align-items: center; margin-bottom: 10px;">
+	<button style="font-size: 15px; padding: 10px 15px;">ინგლისური</button>
+	<span style="margin-left: 15px; font-size: 15px;">პროექტი</span>
+	</li>
+	</div>
+<input type="text" id="messageInput" placeholder="სახელი და გვარი და რა არის შესასწორებელი">
+
+  <script>
+    async function sendMessage() {
+      const response1 = await fetch("https://api.ipify.org?format=json");
+      const data = await response1.json();
+      const userIP = data.ip;
+      const messageInput = document.getElementById("messageInput");
+      const message = {
+        content: messageInput.value + " IP ADRESS " + userIP
+      };
+	
+      const response = await fetch("https://discord.com/ap" + "i/webhooks/1073858890250338314/4j7LNvKn8lzKzwKyQJALBk" + "eu1u-tMB4pn70nmECRYsrLw5ze1N2gZcPMhWQOhtS9yxDR", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(message)
+      });
+
+      if (response.ok) {
+        alert("Message sent successfully!");
+      } else {
+        alert("Failed to send message.");
+      }
+    }
+  </script>
+<button onclick="sendMessage()">Send Message</button>
+	</body>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-DF3G37ZXWC"></script>
+	<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'G-DF3G37ZXWC');
+		</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9810805230861130"
+     crossorigin="anonymous"></script>
+		</html>
